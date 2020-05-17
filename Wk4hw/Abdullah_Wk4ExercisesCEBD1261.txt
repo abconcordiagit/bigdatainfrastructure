@@ -1,0 +1,125 @@
+Abdullah Mahmud Week4 Exercises on Scala (CEBD 1261)
+https://github.com/abconcordiagit/bigdatainfrastructure/blob/master/Wk4hw/Abdullah_Wk4ExercisesCEBD1261.docx
+
+Exercise 1 (Mandatory) 
+Define the following values: 
+● val x : Double = 42.354562  ● val y : Int = 3 
+Write required code in println command to print the following output: 
+● The round value of x is 42.35  ● The left zero padding version of y is 0003 
+Obviously 42.35 and 0003 should be computed.
+Ans:
+object wk4ex1 {
+  
+    def main(args: Array[String])
+		{
+    println("Printing Double with 2 decimel value and left padding integer") 
+    
+    val x : Double = 42.354562;                     //> x  : Double = 42.354562
+  	val y : Int = 3;                          //> y  : Int = 3
+    println(f"$x%1.2f")                             //> 42.35
+    println(f"$y%04d")                              //> 0003
+}
+}
+Exercise 2 (Mandatory) 
+Write a function to compute factorial (5! = 5*4*3*2*1) 
+Then write another function to call fact function and println few examples (i.e, 6,8,4.52).  Your program should return NA if the input is not integer.
+Ans:
+
+object wk4ex2_1 {
+  
+   def main(args: Array[String]) {
+      println(matchTest(6))
+      println(matchTest(8))
+      println(matchTest(4.52))
+      
+   }
+      
+def matchTest(n: Any): Any = n match {
+                case y: Int => println(factorial(y))
+                case _ => "NA"
+             }
+   
+      def factorial(n: Double): Double ={
+                val b = n.toInt
+            		if (b == 0){
+            			return 1
+            		}else{
+            			return b * factorial(b-1)
+            		}
+            	}    
+}
+Exercise 3 (Mandatory) 
+Repeat the previous exercise by accepting the double numbers into the factorial  function. Convert them to integer before calling the fact function. 
+object wk4ex3 {
+  def main(args: Array[String])
+		{
+      println("Printing factorial after converting double to int")    
+      
+      println(factorial1(6)) 
+      println(factorial1(8)) 
+      println(factorial1(4.52)) 
+      
+      
+    }
+ def factorial1(n: Double): Double ={
+        val b = n.toInt
+    		if (b == 0){
+    			return 1
+    		}else{
+    			return b * factorial1(b-1)
+    		}
+    	} 
+    
+}
+
+Exercise 4 (Optional) 
+Write a code that prints out the first 10 values of the Fibonacci sequence.  ● The result should be 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+Ans:
+
+
+object wk4ex4series {
+  
+ 
+    def fibonacci(n: Int): Int = {
+        if (n==0){
+          return 0
+        }
+        else if (n < 3 && n>0){
+          return 1 
+        }
+        else {
+          fibonacci(n - 1) + fibonacci(n - 2)
+        }
+    }
+    def main(args: Array[String]) {
+        for {i <- List.range(0, 10)} 
+            yield { print(fibonacci(i) + ", ") }
+         }
+}
+
+
+
+Exercise 5 (Optional) 
+Write a function that takes the number and says here is the cube of the input:   
+● 5 -> 125 is the cube  
+● Retry doing it via lambda function 
+Ans:
+object wk4ex5 {
+    def main(args: Array[String])
+  {
+   println(mycube(5,3))
+   
+   // Using Lambda expression
+   val mycube1= (x:Int,y:Int) => scala.math.pow(x,y)
+   println (mycube1(5,3))
+   
+  }
+  def mycube(n:Double,p:Double) : Double = {
+  return scala.math.pow(n,p)
+  }
+  
+}
+
+
+
+
